@@ -1,14 +1,14 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-export default function CreateTodo({ user, posts, dispatch }) {
-    const [title, setTitle] = useState("");
-    const [content, setContent] = useState("");
+export default function CreateTodo({ user, todos, dispatch }) {
+    const [title, setTitle] = useState('');
+    const [content, setContent] = useState('');
 
     return (
         <form
             onSubmit={(e) => {
                 e.preventDefault();
-                dispatch({ type: "CREATE_POST", title, content, author: user });
+                dispatch({ type: "CREATE_TODO", title, content, author: user });
             }}
         >
             <div>
