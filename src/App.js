@@ -3,6 +3,7 @@ import { useState, useReducer } from "react";
 import UserBar from "./user/UserBar";
 import TodoList from "./todo/TodoList";
 import CreateTodo from "./todo/CreateTodo";
+import './App.css'
 
 import appReducer from "./reducers";
 
@@ -26,12 +27,20 @@ function App() {
     });
 
     return (
-        <div>
-            <UserBar user={state.user} dispatch={dispatch} />
-            <TodoList todos={state.todos} />
-            {state.user && (
-                <CreateTodo user={state.user} todos={state.todos} dispatch={dispatch} />
-            )}
+        <div className="app">
+            <header>
+                <UserBar user={state.user} dispatch={dispatch} />
+            </header>
+            <main>
+                <div className="todo-list">
+                    {state.user && (
+                        <CreateTodo user={state.user} todos={state.todos} dispatch={dispatch} />
+                    )}
+                </div>
+                <div className="create-Todo">
+                    <TodoList todos={state.todos} />
+                </div>
+            </main>
         </div>
     );
 }

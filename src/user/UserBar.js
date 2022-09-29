@@ -9,10 +9,14 @@ export default function UserBar({ user, dispatch }) {
         return <Logout user={user} dispatch={dispatch} />;
     } else {
         return (
-            <>
-                <Login dispatch={dispatch} />
-                <Register dispatch={dispatch} />
-            </>
+            <div>
+                <div>
+                    <Login dispatch={dispatch}/>
+                </div>
+                <div>
+                    <Register dispatch={dispatch} />
+                </div>
+            </div>
         );
     }
 }

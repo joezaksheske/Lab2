@@ -1,0 +1,156 @@
+.app {
+    background: #209cee;
+    height: 100vh;
+    padding: 30px;
+    align-items:center;
+}
+
+.todo-list {
+    background: #e8e8e8;
+    border-radius: 4px;
+    max-width: 90vw;
+    padding: 5px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+    margin: 10px;
+}
+
+.create-Todo{
+    background: #e8e8e8;
+    display: flex;
+    border-radius: 4px;
+    max-width: 90vw;
+    padding: 5px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+    margin: 10px;
+}
+
+.todo {
+    display: grid;
+    grid-template-columns: 20fr 22.5fr 22.5fr 22.5fr 12.5fr;
+    grid-template-rows: 20fr 70fr 10fr;
+    align-items: center;
+    background: #fff;
+    width: border-box;
+    border-radius: 3px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+    font-size: 12px;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    padding: 3px 10px;
+}
+
+.todo_Title_Container{
+    grid-row: 1 / span 2;
+    grid-column: 1;
+}
+
+.todo_Description_Container{
+    grid-row: 1 / span 2;
+    grid-column: 2 / span 4;
+}
+
+.todo_DateCreated_Container{
+    grid-row: 3;
+    grid-column: 2;
+}
+
+.todo_Checkbox_Container{
+    grid-row: 1 / span 3;
+    grid-column: 5;
+    display: block;
+    vertical-align: center;
+    margin: auto;
+}
+
+.todo_Author_Container{
+    grid-row: 3;
+    grid-column: 1;
+}
+.todo_CompleteStatus_Container{
+    grid-row:3;
+    grid-column: 3;
+}
+
+.todo_DateCompleted_Container{
+    grid-row:3;
+    grid-column: 4;
+    border: black;
+}
+
+.button_CreateTodo{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 12px 28px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 12px;
+}
+
+.button_CreateTodo:disabled{
+    background-color: #e7e7e7; color: black;
+    border: none;
+    color: white;
+    padding: 12px 28px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 12px;
+}
+
+.form_CreateTodoHeader{
+    grid-row: 1;
+    grid-column: 2;
+    margin: 5px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 30px;
+}
+
+.form_CreateTodoTitle{
+    grid-row: 3;
+    grid-column: 2;
+    width: auto;
+    padding:3px;
+    margin: 3px;
+}
+
+.form_CreateTodoTitle_Input{
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.form_CreateTodoDescription{
+    width: 100%;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+    grid-column: 2;
+    grid-row: 4;
+    margin: 5px;
+}
+
+.form_CreateTodoAuthor{
+    grid-column: 2;
+    grid-row: 2;
+    margin: 5px
+}
+
+.form_CreateTodoSubmit{
+    display: block;
+    grid-column: 2;
+    grid-row: 5;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form_CreateTodo{
+    display:grid;
+    max-height: 400px;
+    grid-template-columns: 10fr 80fr 10fr;
+    grid-template-rows: 15fr 10fr 10fr 60fr 5fr;
+}
