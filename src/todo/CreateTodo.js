@@ -1,20 +1,28 @@
-import { useState } from 'react';
+import {useState} from 'react';
 
-export default function CreateTodo({ user, todos, dispatch }) {
+export default function CreateTodo({user, todos, dispatch}) {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
 
     return (
-        <div>
+        <div className="todo-list">
             <form
                 onSubmit={(e) => {
                     e.preventDefault();
-                    dispatch({ type: "CREATE_TODO", title, content, author: user });
+                    dispatch({
+                        type: "CREATE_TODO",
+                        title,
+                        content,
+                        author: user,
+                        dateCreated: new Date().toLocaleDateString(),
+                        completed: false,
+                        completeDate: null
+                    });
                 }}
             >
                 <div className="form_CreateTodo">
                     <div className="form_CreateTodoHeader">
-                            What do you need to get done?
+                        What do you need to get done?
                     </div>
                     <div className="form_CreateTodoAuthor">
                         Author: <b>{user}</b>
@@ -36,7 +44,8 @@ export default function CreateTodo({ user, todos, dispatch }) {
                         onChange={(event) => setContent(event.target.value)}
                     />
                     <div className="form_CreateTodoSubmit">
-                        <input className="button_CreateTodo" type="submit" value="Create" disabled={title.length === 0}/>
+                        <input type="submit" value="Create"
+                               disabled={title.length === 0}/>
                     </div>
                 </div>
             </form>

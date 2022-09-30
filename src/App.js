@@ -32,11 +32,9 @@ function App() {
                 <UserBar user={state.user} dispatch={dispatch} />
             </header>
             <main>
-                <div className="todo-list">
-                    {state.user && (
+                {state.user && (
                         <CreateTodo user={state.user} todos={state.todos} dispatch={dispatch} />
                     )}
-                </div>
                 <div className="todo-list">
                     <TodoList todos={state.todos} />
                 </div>

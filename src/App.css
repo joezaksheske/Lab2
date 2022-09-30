@@ -1,15 +1,17 @@
-.app {
+body{
+    padding: 0;
+    margin: 0;
     background: #209cee;
-    height: 100vh;
-    padding: 30px;
-    align-items:center;
+}
+
+.app {
 }
 
 .todo-list {
     display: block;
     background: #e8e8e8;
     border-radius: 4px;
-    max-width: 90vw;
+    width: 90%;
     padding: 5px;
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
     margin-right: auto;
@@ -84,11 +86,11 @@
     border: black;
 }
 
-.button_CreateTodo{
+button{
     background-color: #4CAF50; /* Green */
     border: none;
     color: white;
-    padding: 12px 28px;
+    padding: 8px 16px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -96,16 +98,9 @@
     border-radius: 12px;
 }
 
-.button_CreateTodo:disabled{
-    background-color: #e7e7e7; color: black;
-    border: none;
-    color: white;
-    padding: 12px 28px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 12px;
+button:disabled{
+    background-color: #bcbcbc;
+    color: #999999;
 }
 
 .form_CreateTodoHeader{
@@ -160,4 +155,23 @@
     max-height: 400px;
     grid-template-columns: 10fr 80fr 10fr;
     grid-template-rows: 15fr 10fr 10fr 60fr 5fr;
+}
+
+
+.wrapper_UserBar{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    background: #e8e8e8;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.userBar_Button_Container{
+    display: flex;
+    align-self: end;
 }
