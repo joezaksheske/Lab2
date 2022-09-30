@@ -6,31 +6,22 @@
 }
 
 .todo-list {
+    display: block;
     background: #e8e8e8;
     border-radius: 4px;
     max-width: 90vw;
     padding: 5px;
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
-    margin: 10px;
-}
-
-.create-Todo{
-    background: #e8e8e8;
-    display: flex;
-    border-radius: 4px;
-    max-width: 90vw;
-    padding: 5px;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
-    margin: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 5px;
 }
 
 .todo {
     display: grid;
     grid-template-columns: 20fr 22.5fr 22.5fr 22.5fr 12.5fr;
     grid-template-rows: 20fr 70fr 10fr;
-    align-items: center;
     background: #fff;
-    width: border-box;
     border-radius: 3px;
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
     font-size: 12px;
@@ -40,38 +31,54 @@
 }
 
 .todo_Title_Container{
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 2px;
     grid-row: 1 / span 2;
     grid-column: 1;
 }
 
 .todo_Description_Container{
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 2px;
     grid-row: 1 / span 2;
     grid-column: 2 / span 4;
 }
 
 .todo_DateCreated_Container{
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 2px;
     grid-row: 3;
     grid-column: 2;
 }
 
 .todo_Checkbox_Container{
+    margin: auto;
     grid-row: 1 / span 3;
     grid-column: 5;
-    display: block;
-    vertical-align: center;
-    margin: auto;
 }
 
 .todo_Author_Container{
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 2px;
     grid-row: 3;
     grid-column: 1;
 }
 .todo_CompleteStatus_Container{
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 2px;
     grid-row:3;
     grid-column: 3;
 }
 
 .todo_DateCompleted_Container{
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 2px;
     grid-row:3;
     grid-column: 4;
     border: black;

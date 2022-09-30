@@ -37,7 +37,7 @@ function App() {
                         <CreateTodo user={state.user} todos={state.todos} dispatch={dispatch} />
                     )}
                 </div>
-                <div className="create-Todo">
+                <div className="todo-list">
                     <TodoList todos={state.todos} />
                 </div>
             </main>
