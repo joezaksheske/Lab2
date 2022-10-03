@@ -24,12 +24,11 @@ function todoReducer(state, action) {
             };
             return [newTodo, ...state];
         case "UPDATE_TODO":
-            const updateTodo = state.map((todo, i) => {
+            return state.map((todo, i) => {
                 if (todo.todoID === action.todoID){
                     return action
                 } else return todo
             }); 
-            return updateTodo
         default:
             return state;
     }
