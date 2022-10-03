@@ -36,7 +36,7 @@ function App() {
   });
 
   return (
-    <div className="app">
+    <div>
       <header>
         <UserBar user={state.user} dispatch={dispatch} />
       </header>
