@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import { v4 as uuidv4 } from "uuid";
 
 export default function CreateTodo({user, todos, dispatch}) {
     const [title, setTitle] = useState('');
@@ -11,10 +12,11 @@ export default function CreateTodo({user, todos, dispatch}) {
                     e.preventDefault();
                     dispatch({
                         type: "CREATE_TODO",
+                        todoID: uuidv4(),
                         title,
                         content,
                         author: user,
-                        dateCreated: new Date().toLocaleDateString(),
+                        dateCreated: new Date().toLocaleString(),
                         completed: false,
                         completeDate: null
                     });

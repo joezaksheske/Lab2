@@ -14,6 +14,7 @@ function todoReducer(state, action) {
     switch (action.type) {
         case "CREATE_TODO":
             const newTodo = {
+                todoID: action.todoID,
                 title: action.title,
                 content: action.content,
                 author: action.author,
@@ -22,6 +23,13 @@ function todoReducer(state, action) {
                 dateCompleted: action.dateCompleted,
             };
             return [newTodo, ...state];
+        case "UPDATE_TODO":
+            const updateTodo = state.map((todo, i) => {
+                if (todo.todoID === action.todoID){
+                    return action
+                } else return todo
+            }); 
+            return updateTodo
         default:
             return state;
     }

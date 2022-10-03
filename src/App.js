@@ -1,4 +1,5 @@
 import { useState, useReducer } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 import UserBar from "./user/UserBar";
 import TodoList from "./todo/TodoList";
@@ -13,11 +14,19 @@ function App() {
             title: "My first post",
             content: "Some content",
             author: "Paul",
+            todoID: uuidv4(),
+            dateCreated: new Date().toLocaleString(),
+            completed: false,
+            dateCompleted: null
         },
         {
             title: "My second post",
             content: "Some content",
             author: "Paul",
+            todoID: uuidv4(),
+            dateCreated: new Date().toLocaleString(),
+            completed: false,
+            dateCompleted: null
         },
     ];
 
@@ -36,7 +45,7 @@ function App() {
                         <CreateTodo user={state.user} todos={state.todos} dispatch={dispatch} />
                     )}
                 <div className="todo-list">
-                    <TodoList todos={state.todos} />
+                    <TodoList todos={state.todos}  dispatch={dispatch} />
                 </div>
             </main>
         </div>
