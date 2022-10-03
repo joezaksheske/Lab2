@@ -1,10 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 body{
     padding: 0;
     margin: 0;
     background: #209cee;
+    font-family: 'Roboto';
 }
 
 .app {
+}
+
+header{
+    font-family: 'Roboto';
 }
 
 .todo-list {
@@ -108,7 +114,6 @@ button:disabled{
     grid-column: 2;
     margin: 5px;
     text-align: center;
-    font-family: sans-serif;
     font-size: 30px;
 }
 
