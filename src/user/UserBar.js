@@ -16,7 +16,6 @@ export default function UserBar({ user, dispatch }) {
     return (
       <div className="wrapper_UserBar">
         <Login dispatch={dispatch} />
-        <br></br>
         <Register dispatch={dispatch} />
       </div>
     );
