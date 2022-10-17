@@ -1,8 +1,7 @@
-import { useState } from "react";
+// import { useState } from "react";
 export default function Todo({ todo, dispatch }) {
   return (
     <div className="todo">
-      {console.log(todo)}
       <div className="todo_Title_Container">
         <h3>{todo.title}</h3>
       </div>
@@ -26,7 +25,7 @@ export default function Todo({ todo, dispatch }) {
           onChange={(e) => {
             dispatch({
               ...todo,
-              type: "UPDATE_TODO",
+              type: "TOGGLE_TODO",
               completed: e.currentTarget.checked,
               dateCompleted: e.currentTarget.checked
                 ? new Date().toLocaleString()
@@ -34,6 +33,13 @@ export default function Todo({ todo, dispatch }) {
             });
           }}
         ></input>
+        <button
+           onClick={(e) => {
+             dispatch({type:"DELETE_TODO", ...todo})
+           }}
+         >
+           Delete Todo
+         </button>
       </div>
     </div>
   );
