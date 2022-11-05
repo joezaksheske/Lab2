@@ -1,59 +1,89 @@
-import { useState, useReducer } from "react";
+import React, { useState, useReducer, useEffect } from "react";
+import { useResource } from "react-request-hook";
 import { v4 as uuidv4 } from "uuid";
 
 import UserBar from "./user/UserBar";
 import TodoList from "./todo/TodoList";
 import CreateTodo from "./todo/CreateTodo";
 import "./App.css";
+import Header from "./Header";
+import ChangeTheme from "./ChangeTheme";
+
 
 import appReducer from "./reducers";
 
+import {ThemeContext, StateContext} from "./contexts";
+
 function App() {
-  const initialTodos = [
-    {
-      title: "My first post",
-      content: "Some content",
-      author: "Paul",
-      todoID: uuidv4(),
-      dateCreated: new Date().toLocaleString(),
-      completed: false,
-      dateCompleted: null,
-    },
-    {
-      title: "My second post",
-      content: "Some content",
-      author: "Paul",
-      todoID: uuidv4(),
-      dateCreated: new Date().toLocaleString(),
-      completed: false,
-      dateCompleted: null,
-    },
-  ];
+  const initialTodos = [];
 
   const [state, dispatch] = useReducer(appReducer, {
     user: "",
     todos: initialTodos,
   });
 
+  const { user } = state;
+
+  useEffect(() => {
+    if (user) {
+      document.title = `${user}'s Todo`; 
+    } else {
+      document.title = "Todo";
+    }
+  })
+
+  const [theme, seTheme] = useState({
+    primaryColor: "deepskyblue",
+    secondaryColor: "coral",  
+  })
+
+  const [todos, getTodos] = useResource(() => ({
+    url: "/todos",
+    method: "get",
+  }));
+
+  useEffect(getTodos, []);
+
+  useEffect(() => {
+    if (todos && todos.data) {
+      dispatch({ type:"FETCH_TODOS", todos: todos.data.reverse()});
+    }
+  }, [todos]);
+
   return (
     <div>
-      <header>
-        <UserBar user={state.user} dispatch={dispatch} />
-      </header>
-      <main>
-        {state.user && (
-          <CreateTodo
-            user={state.user}
-            todos={state.todos}
-            dispatch={dispatch}
-          />
-        )}
-        <div className="todo-list">
-          <TodoList todos={state.todos} dispatch={dispatch} />
-        </div>
-      </main>
+      <StateContext.Provider value={{ state, dispatch}}>
+        <ThemeContext.Provider value={theme}>
+          <Header title="Todo"/>
+          <ChangeTheme theme={theme} setTheme={setTheme}/>
+          <React.Suspense fallback={"Loading..."}>
+            <UserBar/>
+          </React.Suspense>
+          <TodoList />
+          {state.user && <CreateTodo />}
+        </ThemeContext.Provider>
+      </StateContext.Provider>
     </div>
   );
 }
 
 export default App;
+
+
+{/* <div>
+<header>
+  
+</header>
+<main>
+  {state.user && (
+    <CreateTodo
+      user={state.user}
+      todos={state.todos}
+      dispatch={dispatch}
+    />
+  )}
+  <div className="todo-list">
+    <TodoList todos={state.todos} dispatch={dispatch} />
+  </div>
+</main>
+</div> */}

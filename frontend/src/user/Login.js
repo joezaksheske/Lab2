@@ -1,14 +1,42 @@
-import React, { useState } from "react";
+import React, {useState, useContext, useEffect} from "react";
+import { useResource } from "react-request-hook";
+import { StateContext } from "../../contexts";
 
-export default function Login({ dispatch }) {
+
+export default function Login() {
   const [username, setUsername] = useState("");
+  const [loginFailed, setLoginFailed] = useState(false);
+  const [password, setPassword] = useState("");
+
+  const { dispatch } = useContext(StateContext);
+
+  const [ user, login ] = useResource((username, password) => ({
+    url: "/login",
+    method: "post",
+    data: {email: username, password},
+  }));
 
   //   function handleUsername(evt) {
   //     setUsername(evt.target.value);
   //   }
 
+  useEffect(() => {
+    if (user.data.user) {
+      setLoginFailed(false);
+      dispatch({type: "LOGIN", username: user.data.user.email });
+    }
+
+    if (user.error){
+      console.log(user.error);
+      setLoginFailed(true);
+    }
+  }, [user]);
+
   return (
-    <form
+    <>
+    {loginFailed && (<span style={{color: "red"}}>Invalid username or password</span>
+    )}
+    //   <form
       onSubmit={(e) => {
         e.preventDefault();
         dispatch({ type: "LOGIN", username });
@@ -31,5 +59,6 @@ export default function Login({ dispatch }) {
         disabled={username.length === 0}
       />
     </form>
-  );
+    </>
+    );
 }
