@@ -1,15 +1,15 @@
 import Todo from "./Todo";
+import { useContext } from "react";
+import { StateContext } from "../contexts";
 
-export default function TodoList({ todos = [], dispatch }) {
-  if (todos.length === 0)
-    {return (<div>No Todos here</div>)}
-  else
-    {return (
-      <div>
-        {console.log(todos)}
-        {todos.map((todo) => (
-          <Todo todo={todo} key={todo.todoID} dispatch={dispatch} />
-        ))}
-      </div>
-  );}
+export default function TodoList() {
+ const { state } = useContext(StateContext);
+ const { todos } = state;
+ return (
+  <div>
+    {todos.map((p,i) => (
+      <Todo {...p} key={p.id} />
+    ))}
+  </div>
+ );
 }

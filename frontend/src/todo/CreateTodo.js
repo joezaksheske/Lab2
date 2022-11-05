@@ -1,25 +1,43 @@
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { useResource } from "react-request-hook";
+import { StateContext } from "../contexts";
 
-export default function CreateTodo({ user, todos, dispatch }) {
+export default function CreateTodo() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const [error, setError] = useState(false);
+
+  const { state, dispatch } = useContext(StateContext);
+  const { user } = state;
+
+  const [todo, createTodo] = useResource(({ title, content, author}) => ({
+    url: "/todos",
+    method: "post",
+    data: { title, content, author}
+  }));
+
+  useEffect(() => {
+    if (todo.error) {
+      setError(true);
+    }
+    if (todo.isLoading === false && todo.data) {
+      dispatch({
+        type: "CREATE_TODO",
+        title: todo.data.title,
+        content: todo.data.content,
+        author: todo.data.author,
+        id: todo.data.id,
+      })
+    }
+  }, [todo]);
 
   return (
     <div className="todo-list">
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          dispatch({
-            type: "CREATE_TODO",
-            todoID: uuidv4(),
-            title,
-            content,
-            author: user,
-            dateCreated: new Date().toLocaleString(),
-            completed: false,
-            completeDate: null,
-          });
+          createTodo({title, content, author:user});
         }}
       >
         <div className="form_CreateTodo">

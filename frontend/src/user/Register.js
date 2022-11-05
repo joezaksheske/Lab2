@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect} from "react";
 import { useResource } from "react-request-hook";
-import { StateContext } from "../../contexts";
+import { StateContext } from "../contexts";
 
 export default function Register() {
   const [username, setUsername] = useState("");

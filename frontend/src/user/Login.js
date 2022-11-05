@@ -1,6 +1,6 @@
 import React, {useState, useContext, useEffect} from "react";
 import { useResource } from "react-request-hook";
-import { StateContext } from "../../contexts";
+import { StateContext } from "../contexts";
 
 
 export default function Login() {
@@ -36,10 +36,10 @@ export default function Login() {
     <>
     {loginFailed && (<span style={{color: "red"}}>Invalid username or password</span>
     )}
-    //   <form
+     <form
       onSubmit={(e) => {
         e.preventDefault();
-        dispatch({ type: "LOGIN", username });
+        login(username, password);
       }}
     >
       <label htmlFor="login-username">Username:</label>
