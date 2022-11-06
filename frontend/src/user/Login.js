@@ -20,13 +20,17 @@ export default function Login() {
   //     setUsername(evt.target.value);
   //   }
 
+  function handlePassword(evt) {
+    setPassword(evt.target.value)
+  };
+
   useEffect(() => {
-    if (user.data.user) {
+    if (user?.data?.user) {
       setLoginFailed(false);
       dispatch({type: "LOGIN", username: user.data.user.email });
     }
 
-    if (user.error){
+    if (user?.error){
       console.log(user.error);
       setLoginFailed(true);
     }
@@ -51,7 +55,12 @@ export default function Login() {
         id="login-username"
       />
       <label htmlFor="login-password">Password:</label>
-      <input type="password" name="login-password" id="login-password" />
+      <input 
+        type="password"
+        value={password}
+        onChange={handlePassword}
+        name="login-password" 
+        id="login-password" />
       <input
         className="button_SubmitUserBar"
         type="submit"

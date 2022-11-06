@@ -14,7 +14,7 @@ function todoReducer(state, action) {
   switch (action.type) {
     case "CREATE_TODO":
       const newTodo = {
-        todoID: action.todoID,
+        id: action.id,
         title: action.title,
         content: action.content,
         author: action.author,
@@ -31,6 +31,8 @@ function todoReducer(state, action) {
       });
     case "DELETE_TODO":
       return state.filter(e => e.todoID !== action.todoID);
+    case "FETCH_TODOS":
+      return action.todos;
     default:
       return state;
   }

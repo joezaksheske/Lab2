@@ -32,7 +32,7 @@ function App() {
     }
   })
 
-  const [theme, seTheme] = useState({
+  const [theme, setTheme] = useState({
     primaryColor: "deepskyblue",
     secondaryColor: "coral",  
   })
@@ -68,22 +68,3 @@ function App() {
 }
 
 export default App;
-
-
-{/* <div>
-<header>
-  
-</header>
-<main>
-  {state.user && (
-    <CreateTodo
-      user={state.user}
-      todos={state.todos}
-      dispatch={dispatch}
-    />
-  )}
-  <div className="todo-list">
-    <TodoList todos={state.todos} dispatch={dispatch} />
-  </div>
-</main>
-</div> */}
