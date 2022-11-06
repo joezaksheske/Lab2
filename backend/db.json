@@ -1,0 +1,46 @@
+{
+  "todos": [
+    {
+      "title": "My second post",
+      "content": "Some content",
+      "author": "Paul",
+      "id": 2,
+      "dateCreated": "TEMP",
+      "completed": true,
+      "dateCompleted": null,
+      "completeDate": "11/6/2022, 10:46:19 AM"
+    },
+    {
+      "title": "something",
+      "content": "something",
+      "author": "test@test.com",
+      "dateCreated": "11/6/2022, 9:21:34 AM",
+      "completed": true,
+      "completeDate": "11/6/2022, 10:45:49 AM",
+      "id": 4
+    },
+    {
+      "title": "asdfasdf",
+      "content": "asdfasdf",
+      "author": "test@test.com",
+      "dateCreated": "11/6/2022, 9:33:08 AM",
+      "completed": true,
+      "completeDate": "11/6/2022, 10:48:45 AM",
+      "id": 9
+    }
+  ],
+  "users": [
+    {
+      "email": "test@test.com",
+      "password": "$2a$10$UiSdDXdIfV7MZU0tUuL8juxmQzmMus8bhLbqFr8FlEAoIZurvwNYe",
+      "id": 1
+    }
+  ],
+  "themes": [
+    {
+      "id": 1,
+      "primaryColor": "deepskyblue",
+      "secondaryColor": "coral"
+    }
+  ]
+}
