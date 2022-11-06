@@ -1,22 +1,12 @@
 {
   "todos": [
     {
-      "title": "My second post",
-      "content": "Some content",
-      "author": "Paul",
-      "id": 2,
-      "dateCreated": "TEMP",
-      "completed": true,
-      "dateCompleted": null,
-      "completeDate": "11/6/2022, 10:46:19 AM"
-    },
-    {
       "title": "something",
       "content": "something",
       "author": "test@test.com",
       "dateCreated": "11/6/2022, 9:21:34 AM",
       "completed": true,
-      "completeDate": "11/6/2022, 10:45:49 AM",
+      "completeDate": "11/6/2022, 10:58:51 AM",
       "id": 4
     },
     {
@@ -25,8 +15,62 @@
       "author": "test@test.com",
       "dateCreated": "11/6/2022, 9:33:08 AM",
       "completed": true,
-      "completeDate": "11/6/2022, 10:48:45 AM",
+      "completeDate": "11/6/2022, 10:58:33 AM",
       "id": 9
+    },
+    {
+      "title": "asdfasdf",
+      "content": "sfasdfasdf",
+      "author": "asdfj@ajdshfas.com",
+      "dateCreated": "11/6/2022, 11:01:48 AM",
+      "completed": true,
+      "completeDate": "11/6/2022, 11:02:12 AM",
+      "id": 10
+    },
+    {
+      "title": "asdfasdf",
+      "content": "sfasdfasdf",
+      "author": "asdfj@ajdshfas.com",
+      "dateCreated": "11/6/2022, 11:01:50 AM",
+      "completed": false,
+      "completeDate": null,
+      "id": 11
+    },
+    {
+      "title": "asdfasdf",
+      "content": "sfasdfasdf",
+      "author": "asdfj@ajdshfas.com",
+      "dateCreated": "11/6/2022, 11:01:51 AM",
+      "completed": false,
+      "completeDate": null,
+      "id": 12
+    },
+    {
+      "title": "asdfasdf",
+      "content": "sfasdfasdf",
+      "author": "asdfj@ajdshfas.com",
+      "dateCreated": "11/6/2022, 11:01:53 AM",
+      "completed": true,
+      "completeDate": "11/6/2022, 11:13:42 AM",
+      "id": 13
+    },
+    {
+      "title": "asdfasdf",
+      "content": "sfasdfasdf",
+      "author": "asdfj@ajdshfas.com",
+      "dateCreated": "11/6/2022, 11:01:55 AM",
+      "completed": true,
+      "completeDate": "11/6/2022, 11:08:58 AM",
+      "id": 14
+    },
+    {
+      "title": "asdfasdf",
+      "content": "sfasdfasdf",
+      "author": "asdfj@ajdshfas.com",
+      "dateCreated": "11/6/2022, 11:01:57 AM",
+      "completed": false,
+      "completeDate": null,
+      "id": 15
     }
   ],
   "users": [
@@ -34,6 +78,11 @@
       "email": "test@test.com",
       "password": "$2a$10$UiSdDXdIfV7MZU0tUuL8juxmQzmMus8bhLbqFr8FlEAoIZurvwNYe",
       "id": 1
+    },
+    {
+      "email": "asdfj@ajdshfas.com",
+      "password": "$2a$10$7XiAodJ8jRHI38iOfQbIL.BJqrVZHyjD.iueBOtqtYijRWYTZGfbm",
+      "id": 2
     }
   ],
   "themes": [
@@ -41,6 +90,11 @@
       "id": 1,
       "primaryColor": "deepskyblue",
       "secondaryColor": "coral"
-    }
+    },
+    {
+        "id": 2,
+        "primaryColor": "green",
+        "secondaryColor": "red"
+      }
   ]
 }

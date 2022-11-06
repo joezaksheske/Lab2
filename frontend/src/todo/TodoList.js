@@ -28,6 +28,7 @@ useEffect(getTodos, []);
 
 useEffect(() => {
   if (updateTodos && updateTodos.data) {
+    console.log(updateTodos)
     dispatch({ type:"FETCH_TODOS", todos: updateTodos.data.reverse()});
   }
 }, [updateTodos]);
@@ -37,6 +38,7 @@ useEffect(() => {
     setError(true);
   }
   if (todoToggle?.isLoading === false && todoToggle?.data){
+    console.log(todoToggle);
     dispatch({
         type: "TOGGLE_TODO",
         completed: todoToggle.data.completed,
@@ -51,6 +53,7 @@ useEffect(() => {
     setError(true);
   }
   if (todoDelete?.isLoading === false && todoDelete?.data){
+    console.log(todoDelete);
     dispatch({
       type: "DELETE_TODO"
     });
@@ -61,26 +64,29 @@ useEffect(() => {
  
  return (
   <div>
-    {console.log(todos)}
     {todos.map((todo, index) => (
-      <div key={todo.id}>
-        <Todo {...todo} />
-        <input
-        type="checkbox"
-        checked={todo.completed}
-        onChange={(e) => {
-          toggleTodo({
-            id: todo.id, 
-            completed: e.currentTarget.checked, 
-            completeDate: e.currentTarget.checked? new Date().toLocaleString() : null})
-        }}></input>
-        <button
-         onClick={(e) => {
-           deleteTodo({id: todo.id})
-         }}
-       >
-         Delete Todo
-       </button>
+      <div className="todo">
+        <Todo {...todo} key={todo.id} />
+        <div className="todo_Action_Container">
+        <div className="todo_Checkbox_Container">
+          <input
+          type="checkbox"
+          checked={todo.completed}
+          onChange={(e) => {
+            toggleTodo({
+              id: todo.id, 
+              completed: e.currentTarget.checked, 
+              completeDate: e.currentTarget.checked? new Date().toLocaleString() : null})
+          }}></input>
+          <button className="todo_Delete_Button"
+          onClick={(e) => {
+            deleteTodo({id: todo.id})
+          }}
+        >
+          Delete Todo
+        </button>
+       </div>
+        </div>
       </div>
 
 

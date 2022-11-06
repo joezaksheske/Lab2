@@ -15,32 +15,43 @@ header {
   display: block;
   background: #e8e8e8;
   border-radius: 4px;
-  width: 90%;
+  width: 80%;
   padding: 5px;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
-  margin-right: auto;
-  margin-left: auto;
+  margin-right: 5px;
+  margin-left: 5px;
   margin-bottom: 5px;
 }
 
 .todo {
   display: grid;
-  grid-template-columns: 20fr 22.5fr 22.5fr 22.5fr 12.5fr;
-  grid-template-rows: 20fr 70fr 10fr;
   background: #fff;
   border-radius: 3px;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
-  font-size: 12px;
-  justify-content: space-between;
   margin-bottom: 6px;
   padding: 3px 10px;
+  grid-template-columns: 80fr, 20fr;
+  column-gap: 10px;
+}
+
+.todo_Content_Container{
+  display: grid;
+  grid-template-columns: 40%, 40%, 20%;
+  grid-template-rows: 20%, 80%;
+  background: #fff;
+  font-size: 12px;
+  justify-content: space-between;
+  grid-row: 1;
+  grid-column: 1;
+  column-gap: 5px;
+  row-gap: 5px;
 }
 
 .todo_Title_Container {
   margin-top: auto;
   margin-bottom: auto;
   padding: 2px;
-  grid-row: 1 / span 2;
+  grid-row: 1;
   grid-column: 1;
 }
 
@@ -48,8 +59,17 @@ header {
   margin-top: auto;
   margin-bottom: auto;
   padding: 2px;
+  grid-row: 2;
+  grid-column: 1 / span 2;
+}
+
+.todo_Details_Container{
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 2px;
   grid-row: 1 / span 2;
-  grid-column: 2 / span 4;
+  grid-column: 3;
+  grid-template-rows: repeat(3, 1fr);
 }
 
 .todo_DateCreated_Container {
@@ -60,24 +80,32 @@ header {
   grid-column: 2;
 }
 
+.todo_Action_Container{
+  grid-template-rows: 50fr, 50fr;
+  grid-column: 2;
+}
+
 .todo_Checkbox_Container {
   margin: auto;
-  grid-row: 1 / span 3;
-  grid-column: 5;
+  grid-row: 1;
+}
+
+.todo_Delete_Button{
+  grid-row: 2;
 }
 
 .todo_Author_Container {
   margin-top: auto;
   margin-bottom: auto;
   padding: 2px;
-  grid-row: 3;
-  grid-column: 1;
+  grid-row: 1;
+  grid-column: 2;
 }
 .todo_CompleteStatus_Container {
   margin-top: auto;
   margin-bottom: auto;
   padding: 2px;
-  grid-row: 3;
+  grid-row: 2;
   grid-column: 3;
 }
 
@@ -86,7 +114,7 @@ header {
   margin-bottom: auto;
   padding: 2px;
   grid-row: 3;
-  grid-column: 4;
+  grid-column: 3;
   border: black;
 }
 
