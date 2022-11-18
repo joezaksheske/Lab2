@@ -22,28 +22,10 @@
       "title": "asdfasdf",
       "content": "sfasdfasdf",
       "author": "asdfj@ajdshfas.com",
-      "dateCreated": "11/6/2022, 11:01:48 AM",
-      "completed": true,
-      "completeDate": "11/6/2022, 11:02:12 AM",
-      "id": 10
-    },
-    {
-      "title": "asdfasdf",
-      "content": "sfasdfasdf",
-      "author": "asdfj@ajdshfas.com",
       "dateCreated": "11/6/2022, 11:01:50 AM",
       "completed": false,
       "completeDate": null,
       "id": 11
-    },
-    {
-      "title": "asdfasdf",
-      "content": "sfasdfasdf",
-      "author": "asdfj@ajdshfas.com",
-      "dateCreated": "11/6/2022, 11:01:51 AM",
-      "completed": false,
-      "completeDate": null,
-      "id": 12
     },
     {
       "title": "asdfasdf",
@@ -68,9 +50,36 @@
       "content": "sfasdfasdf",
       "author": "asdfj@ajdshfas.com",
       "dateCreated": "11/6/2022, 11:01:57 AM",
+      "completed": true,
+      "completeDate": "11/6/2022, 12:11:55 PM",
+      "id": 15
+    },
+    {
+      "title": "some title",
+      "content": "nothing of importance",
+      "author": "john@appleseed.com",
+      "dateCreated": "11/6/2022, 12:12:52 PM",
       "completed": false,
       "completeDate": null,
-      "id": 15
+      "id": 16
+    },
+    {
+      "title": "post login ",
+      "content": "post login",
+      "author": "john@appleseed.com",
+      "dateCreated": "11/6/2022, 12:13:24 PM",
+      "completed": false,
+      "completeDate": null,
+      "id": 17
+    },
+    {
+      "title": "testing",
+      "content": "test",
+      "author": "test@test.com",
+      "dateCreated": "11/6/2022, 12:13:44 PM",
+      "completed": false,
+      "completeDate": null,
+      "id": 18
     }
   ],
   "users": [
@@ -83,6 +92,11 @@
       "email": "asdfj@ajdshfas.com",
       "password": "$2a$10$7XiAodJ8jRHI38iOfQbIL.BJqrVZHyjD.iueBOtqtYijRWYTZGfbm",
       "id": 2
+    },
+    {
+      "email": "john@appleseed.com",
+      "password": "$2a$10$fAIV26SwwVjD.1RcwFhxZuTrFAlS/lC6loJQTHNx5evDtBejUlEx6",
+      "id": 3
     }
   ],
   "themes": [
@@ -92,9 +106,9 @@
       "secondaryColor": "coral"
     },
     {
-        "id": 2,
-        "primaryColor": "green",
-        "secondaryColor": "red"
-      }
+      "id": 2,
+      "primaryColor": "green",
+      "secondaryColor": "red"
+    }
   ]
 }
