@@ -40,5 +40,13 @@ router.post("/", async function(req, res){
 });
 
 router.get("/", async function(req, res, next) {
-    const todos = await Todo.find().where("author")
-})
+    const todos = await Todo.find().where("author").equals(req.payload.id).exec();
+    return res.status(200).json({ todos: todos });
+});
+
+router.get("/:id", async function (req, res, next) {
+    const todo = await Todo.findOne().where("_id").equals(req.params.id).exec();
+    return res.status(200).json(todo);
+});
+
+module.exports = router;

@@ -109,6 +109,11 @@ dist
 /.pnp
 .pnp.js
 
+# dotenv enivronment variable files
+.env
+.env.test
+.env.production
+
 # testing
 /coverage
 
