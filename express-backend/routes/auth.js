@@ -47,7 +47,7 @@ router.post("/register", async function(req, res, next) {
         if (req.body.password === req.body.passwordConfirmation) {
             const user = new User({
                 username: req.body.username,
-                password: req.body.hashedPassword,
+                password: req.hashedPassword,
             });
             return user.save().then((savedUser) => {
                 const token = jwt.sign({ id: user._id }, privateKey, {
@@ -59,6 +59,7 @@ router.post("/register", async function(req, res, next) {
                     access_token: token,
                 });
             }).catch((error) => {
+                console.log(error);
                 return res.status(500).json({ error: "Something went wrong. "});
             });
         }

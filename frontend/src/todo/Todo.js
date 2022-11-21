@@ -1,44 +1,26 @@
-import React, { useContext, useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
-import { ThemeContext, StateContext } from "../contexts";
+import { useContext } from "react";
+import { ThemeContext } from "../contexts";
 
+function Todo({ title, content, author, _id }) {
+    const { secondaryColor } = useContext(ThemeContext);
+    console.log("Post rendered");
+    return (
+        <div>
+            <Link to={`/todo/${_id}`}>
+                <h3 style={{ color: "black" }}>{title}</h3>
+            </Link>
 
-
-
-function Todo({title, content, author, dateCreated, completed, completeDate }) {
-  const { secondaryColor } = useContext(ThemeContext);
-  const { state, dispatch } = useContext(StateContext);
-  const { todos } = state;
-  return (
-    <div className="todo_Content_Container">
-      <div className="todo_Title_Container">
-        <small>Title</small>
-        <h3>{title}</h3>
-      </div> 
-      <div className="todo_Description_Container">
-        <small>Content <br></br></small>
-        <span>
-          {content}
-        </span>
+            <div>{content}</div>
+            <br />
+            <i>
+                Written by <b>{author}</b>
+            </i>
         </div>
-      <div className="todo_Author_Container">
-        <small>Written by:<br></br></small> <b>{author}</b>
-      </div>
-      <div className="todo_Details_Container">
-        <div className="todo_DateCreated_Container">
-          <small>Date Created:</small> {dateCreated}
-        </div>
-        <div className="todo_CompleteStatus_Container">
-          <small>Completed:</small> {completed ? "True" : "False"}
-        </div>
-        <div className="todo_DateCompleted_Container">
-          <small>Date Completed:</small>{" "}
-          {completeDate ? completeDate : "Not Completed"}
-        </div>
-      </div>
-  </div>
-  );
+    );
 }
 
 export default React.memo(Todo);
+//export default Post;

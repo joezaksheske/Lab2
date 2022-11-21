@@ -12,8 +12,9 @@ export default function CreateTodo() {
   const { user } = state;
 
   const [todo, createTodo] = useResource(({ title, content, author, dateCreated, completed, completeDate }) => ({
-    url: "/todos",
+    url: "/todo",
     method: "post",
+    headers: { Authorization: `${state.user.access_token}` },
     data: { title, content, author, dateCreated, completed, completeDate}
   }));
 
@@ -43,7 +44,7 @@ export default function CreateTodo() {
           createTodo({
             title, 
             content, 
-            author: user, 
+            author: user.username,
             dateCreated: new Date().toLocaleString(),
             completed: false,
             completeDate: null,
@@ -55,7 +56,7 @@ export default function CreateTodo() {
             What do you need to get done?
           </div>
           <div className="form_CreateTodoAuthor">
-            Author: <b>{user}</b>
+            Author: <b>{user.username}</b>
           </div>
           <div className="form_CreateTodoTitle">
             <label htmlFor="create-title">Title:</label>

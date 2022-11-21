@@ -47,7 +47,7 @@ function App() {
   })
 
   const [todos, getTodos] = useResource(() => ({
-    url: "/todos",
+    url: "/todo",
     method: "get",
   }));
 
