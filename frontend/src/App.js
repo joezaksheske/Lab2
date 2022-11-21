@@ -1,18 +1,27 @@
 import React, { useState, useReducer, useEffect } from "react";
 import { useResource } from "react-request-hook";
-import { v4 as uuidv4 } from "uuid";
 
-import UserBar from "./user/UserBar";
 import TodoList from "./todo/TodoList";
 import CreateTodo from "./todo/CreateTodo";
-import "./App.css";
-import Header from "./Header";
-import ChangeTheme from "./ChangeTheme";
-
 
 import appReducer from "./reducers";
 
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Layout from "./pages/Layout";
+import HomePage from "./pages/HomePage";
+import TodoPage from "./pages/TodoPage";
+
 import {ThemeContext, StateContext} from "./contexts";
+
+import "./App.css";
+// import Header from "./Header";
+// import ChangeTheme from "./ChangeTheme";
+// import UserBar from "./user/UserBar";
+
+// import appReducer from "./reducers";
+
+
 
 function App() {
   const initialTodos = [];
@@ -30,7 +39,7 @@ function App() {
     } else {
       document.title = "Todo";
     }
-  })
+  }, [user])
 
   const [theme, setTheme] = useState({
     primaryColor: "deepskyblue",
@@ -44,23 +53,21 @@ function App() {
 
   useEffect(getTodos, []);
 
-  useEffect(() => {
-    if (todos && todos.data) {
-      dispatch({ type:"FETCH_TODOS", todos: todos.data.reverse()});
-    }
-  }, [todos]);
-
   return (
     <div>
-      <StateContext.Provider value={{ state, dispatch}}>
-        <ThemeContext.Provider value={theme}>
-          <Header title="Todo"/>
-          <ChangeTheme theme={theme} setTheme={setTheme}/>
-          <React.Suspense fallback={"Loading..."}>
-            <UserBar/>
-          </React.Suspense>
-          <TodoList />
-          {state.user && <CreateTodo />}
+      <StateContext.Provider value={{ state, dispatch }} >
+        <ThemeContext.Provider value={ theme }>
+          <BrowserRouter>
+          <Routes>
+            <Route path="/" element={ <Layout />}>
+              <Route index element={<HomePage />} />
+            </Route>
+            <Route path="/todo" element={<Layout />}>
+              <Route path="/todo/create" element={ <CreateTodo />} />
+              <Route path="/todo/:id" element={<TodoPage />} />
+            </Route>
+          </Routes>
+          </BrowserRouter>
         </ThemeContext.Provider>
       </StateContext.Provider>
     </div>

@@ -8,7 +8,7 @@ const router = express.Router();
 
 const saltRounds = 10;
 
-const privateKey = ``;
+const privateKey = process.env.JWT_PRIVATE_KEY;
 
 router.use(function (req, res, next) {
     bcrypt.genSalt(saltRounds,  function(err, salt) {
@@ -49,13 +49,13 @@ router.post("/register", async function(req, res, next) {
                 username: req.body.username,
                 password: req.body.hashedPassword,
             });
-            return user.save().then((savedUSer) => {
+            return user.save().then((savedUser) => {
                 const token = jwt.sign({ id: user._id }, privateKey, {
                     algorithm: "RS256",
                 });
                 return res.status(201).json({
-                    id: savedUSer._id,
-                    username: savedUSer.username,
+                    id: savedUser._id,
+                    username: savedUser.username,
                     access_token: token,
                 });
             }).catch((error) => {

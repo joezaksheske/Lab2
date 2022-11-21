@@ -1,5 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
 import { ThemeContext, StateContext } from "../contexts";
+
+
 
 
 function Todo({title, content, author, dateCreated, completed, completeDate }) {

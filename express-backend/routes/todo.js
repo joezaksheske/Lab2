@@ -2,7 +2,7 @@ const express = require("express");
 const jwt = require("jsonwebtoken");
 const Todo = require("../models/Todo");
 
-const privateKey = ``;
+const privateKey = process.env.JWT_PRIVATE_KEY;
 
 const router = express.Router();
 

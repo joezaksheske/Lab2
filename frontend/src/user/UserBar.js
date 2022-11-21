@@ -3,7 +3,6 @@ import { StateContext } from "../contexts";
 
 
 import Login from "./Login";
-// import Logout from "./Logout";
 import Register from "./Register";
 
 const Logout = React.lazy(() => import("./Logout"));
