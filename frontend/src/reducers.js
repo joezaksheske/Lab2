@@ -36,7 +36,7 @@ function todoReducer(state, action) {
       return state.filter(e => e.todoID !== action.todoID);
     case "FETCH_TODOS":
       return action.todos;
-    case "CLEAR_POSTS":
+    case "CLEAR_TODOS":
       return [];
     default:
       return state;

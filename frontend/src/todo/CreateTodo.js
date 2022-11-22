@@ -1,6 +1,7 @@
 import { useState, useContext, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { useResource } from "react-request-hook";
+import { useParams, useNavigate } from "react-router-dom";
 import { StateContext } from "../contexts";
 
 export default function CreateTodo() {
@@ -11,6 +12,8 @@ export default function CreateTodo() {
   const { state, dispatch } = useContext(StateContext);
   const { user } = state;
 
+  const navigate = useNavigate();
+
   const [todo, createTodo] = useResource(({ title, content, author, dateCreated, completed, completeDate }) => ({
     url: "/todo",
     method: "post",
@@ -19,10 +22,7 @@ export default function CreateTodo() {
   }));
 
   useEffect(() => {
-    if (todo?.error) {
-      setError(true);
-    }
-    if (todo?.isLoading === false && todo?.data) {
+    if(todo.isLoading === false && todo.data) {
       dispatch({
         type: "CREATE_TODO",
         id: todo.data.id,
@@ -32,9 +32,28 @@ export default function CreateTodo() {
         dateCreated: todo.data.dateCreated,
         completed: todo.data.completed,
         completeDate: todo.data.completeDate,
-      })
+      });
+      navigate(`/`);
     }
   }, [todo]);
+
+  // useEffect(() => {
+  //   if (todo?.error) {
+  //     setError(true);
+  //   }
+  //   if (todo?.isLoading === false && todo?.data) {
+  //     dispatch({
+  //       type: "CREATE_TODO",
+  //       id: todo.data.id,
+  //       title: todo.data.title,
+  //       content: todo.data.content,
+  //       author: todo.data.author,
+  //       dateCreated: todo.data.dateCreated,
+  //       completed: todo.data.completed,
+  //       completeDate: todo.data.completeDate,
+  //     })
+  //   }
+  // }, [todo]);
 
   return (
     <div className="todo-list">

@@ -35,7 +35,7 @@ function App() {
 
   useEffect(() => {
     if (user) {
-      document.title = `${user}'s Todo`; 
+      document.title = `${user.username}'s Todo`;
     } else {
       document.title = "Todo";
     }

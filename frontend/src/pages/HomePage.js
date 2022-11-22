@@ -15,7 +15,7 @@ export default function HomePage() {
   }, [state?.user?.access_token]);
   useEffect(() => {
     if (todos && todos.isLoading === false && todos.data && todos.data.todos) {
-      dispatch({ type: "FETCH_POSTS", todos: todos.data.todos.reverse() });
+      dispatch({ type: "FETCH_TODOS", todos: todos.data.todos.reverse() });
     }
   }, [todos]);
   return (
