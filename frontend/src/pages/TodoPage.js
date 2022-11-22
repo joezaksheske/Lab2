@@ -77,7 +77,7 @@ export default function TodoPage() {
                 }
                 }
             >
-              Toggle Todo
+              Toggle Complete Todo
             </button>
             <button className="todo_Delete_Button"
                     onClick={(e) => {

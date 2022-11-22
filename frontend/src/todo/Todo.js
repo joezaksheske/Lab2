@@ -29,7 +29,7 @@ function Todo({ title, content, author, dateCreated, isComplete, dateCompleted, 
                     <small>Completed:</small> {isComplete ? "True" : "False"}
                 </div>
                 <div className="todo_DateCompleted_Container">
-                    <small>Date Completed:</small>{" "}
+                    <small>Date Completed:</small>
                     {dateCompleted ? new Date(dateCompleted).toLocaleString() : "Not Completed"}
                 </div>
             </div>}
