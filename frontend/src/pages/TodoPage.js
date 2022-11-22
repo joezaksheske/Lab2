@@ -69,33 +69,31 @@ export default function TodoPage() {
       {todo && todo.data ?
           <div className = "todo">
             <Todo {...todo.data} />
-            <div className="todo_Action_Container">
-              <div className="todo_Checkbox_Container">
-                <input
-                    type="checkbox"
-                    checked={todo.isCompleted}
-                    onChange={(e) => {
-                      toggleTodo({
-                        isComplete: e.currentTarget.checked,
-                        dateCompleted: e.currentTarget.checked? new Date().toLocaleString() : null})
-                    }}></input>
-                <button className="todo_Delete_Button"
-                        onClick={(e) => {
-                          deleteTodo({id: todo.id})
-                        }}
-                >
-                  Delete Todo
-                </button>
-                {console.log(state.url)}
-                <button
-                    onClick={() => {
-                      navigate(`/`);
+            <button
+                onClick={() => {
+                  toggleTodo({
+                    isComplete: todo.data.isComplete ? false : true,
+                    dateCompleted: todo.data.isComplete ? null : new Date().toLocaleString()})
+                }
+                }
+            >
+              Toggle Todo
+            </button>
+            <button className="todo_Delete_Button"
+                    onClick={(e) => {
+                      deleteTodo({id: todo.id})
                     }}
-                >
-                  Back to Todo List
-                </button>
-              </div>
-            </div>
+            >
+              Delete Todo
+            </button>
+            {console.log(state.url)}
+            <button
+                onClick={() => {
+                  navigate(`/`);
+                }}
+            >
+              Back to Todo List
+            </button>
           </div> : "Loading..."}
     </div>
   );

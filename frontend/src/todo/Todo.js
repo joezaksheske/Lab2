@@ -21,7 +21,7 @@ function Todo({ title, content, author, dateCreated, isComplete, dateCompleted, 
             <div className="todo_Author_Container">
                 <small>Written by:<br></br></small> <b>{author.username}</b>
             </div>
-            <div className="todo_Details_Container">
+            {useLocation().pathname !== '/' && <div className="todo_Details_Container">
                 <div className="todo_DateCreated_Container">
                     <small>Date Created:</small> {new Date(dateCreated).toLocaleString()}
                 </div>
@@ -32,15 +32,15 @@ function Todo({ title, content, author, dateCreated, isComplete, dateCompleted, 
                     <small>Date Completed:</small>{" "}
                     {dateCompleted ? new Date(dateCompleted).toLocaleString() : "Not Completed"}
                 </div>
-            </div>
-            {/*{console.log("hello"}*/}
-            <button
-                onClick={() => {
-                    navigate(`/todo/${_id}`);
-                }}
-            >
-                Details
-            </button>
+            </div>}
+            {useLocation().pathname === '/' &&
+                <button
+                    onClick={() => {
+                        navigate(`/todo/${_id}`);
+                    }}
+                >
+                    Details
+                </button>}
         </div>
     );
 }
