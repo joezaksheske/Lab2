@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams, useLocation,useRoutes } from "react-router-dom";
 
 import { useContext } from "react";
 import { ThemeContext } from "../contexts";
@@ -19,7 +19,7 @@ function Todo({ title, content, author, dateCreated, isComplete, dateCompleted, 
                 <span> {content} </span>
             </div>
             <div className="todo_Author_Container">
-                <small>Written by:<br></br></small> <b>{author}</b>
+                <small>Written by:<br></br></small> <b>{author.username}</b>
             </div>
             <div className="todo_Details_Container">
                 <div className="todo_DateCreated_Container">
@@ -33,6 +33,7 @@ function Todo({ title, content, author, dateCreated, isComplete, dateCompleted, 
                     {dateCompleted ? new Date(dateCompleted).toLocaleString() : "Not Completed"}
                 </div>
             </div>
+            {/*{console.log("hello"}*/}
             <button
                 onClick={() => {
                     navigate(`/todo/${_id}`);

@@ -86,6 +86,7 @@ export default function TodoPage() {
                 >
                   Delete Todo
                 </button>
+                {console.log(state.url)}
                 <button
                     onClick={() => {
                       navigate(`/`);

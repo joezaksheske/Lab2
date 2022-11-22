@@ -25,6 +25,7 @@ export default function HomePage() {
 
   return (
     <>
+      {console.log(state.url)}
       {todos?.isLoading && "Todos loading..." && !todos.error} <TodoList />
     </>
   );

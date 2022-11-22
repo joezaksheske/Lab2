@@ -49,12 +49,15 @@ router.post("/", async function(req, res){
 
 
 router.get("/", async function(req, res, next) {
-    const todos = await Todo.find().where("author").equals(req.payload.id).exec();
+    // const todos = await Todo.find().where("author").equals(req.payload.id).exec();
+    const todos = await Todo.find( { author: new mongo.ObjectId(req.payload.id) } ).populate('author').exec();
+    console.log(todos);
     return res.status(200).json({ todos: todos });
 });
 
 router.get("/:id", async function (req, res, next) {
-    const todo = await Todo.findOne().where("_id").equals(req.params.id).exec();
+    const todo = await Todo.findOne().where("_id").equals(req.params.id).populate('author').exec();
+    console.log(todo);
     return res.status(200).json(todo);
 });
 
