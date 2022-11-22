@@ -36,7 +36,7 @@ export default function Register() {
   return (
       <div>
         {user.error && <span style={{color: "red"}}> {status} </span>}
-        {!user.error && status !== "" && <span style={{color: "red"}}> {status} </span> }
+        {!user.error && status !== "" && <span style={{color: "yellow"}}> {status} </span> }
         <form
             onSubmit={(e) => {
               e.preventDefault();

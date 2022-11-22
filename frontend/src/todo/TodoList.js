@@ -8,13 +8,12 @@ export default function TodoList() {
     const { todos } = state;
     return (
         <div>
-            {todos.map((p, i) => (
-                <Todo {...p} key={p.id} />
-            ))}
-            <div>
-                {todos.length === 0 && <h2>No posts found.</h2>}
-                {todos.length > 0 && todos.map((p, i) => <Todo {...p} key={p._id} />)}
-            </div>
+            {todos.length === 0  && <h2>No posts found.</h2>}
+            {todos.length > 0 && todos.map((p, i) =>
+                    <div className="todo">
+                        <Todo {...p} key={p._id} />
+                    </div>
+                )}
         </div>
     );
 }

@@ -10,17 +10,22 @@ export default function HomePage() {
     method: "get",
     headers: { Authorization: `${state?.user?.access_token}` },
   }));
+
   useEffect(() => {
-    getTodos();
+    if (state.user !== null) {
+      getTodos();
+    }
   }, [state?.user?.access_token]);
+
   useEffect(() => {
-    if (todos && todos.isLoading === false && todos.data && todos.data.todos) {
+    if (todos && todos.isLoading === false && todos.data) {
       dispatch({ type: "FETCH_TODOS", todos: todos.data.todos.reverse() });
     }
   }, [todos]);
+
   return (
     <>
-      {todos?.isLoading && "Todos loading..."} <TodoList />
+      {todos?.isLoading && "Todos loading..." && !todos.error} <TodoList />
     </>
   );
 }
