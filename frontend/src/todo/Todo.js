@@ -34,13 +34,19 @@ function Todo({ title, content, author, dateCreated, isComplete, dateCompleted, 
                 </div>
             </div>}
             {useLocation().pathname === '/' &&
-                <button
-                    onClick={() => {
-                        navigate(`/todo/${_id}`);
-                    }}
-                >
-                    Details
-                </button>}
+                <>
+                    <div className="todo_Details_Container">
+                        <div className="todo_Details_Container">
+                            {isComplete ? "Completed" : "In Progress"}
+                        </div>
+                    </div>
+                    <button
+                        onClick={() => {
+                            navigate(`/todo/${_id}`);
+                        }}>
+                        Details
+                    </button>
+                </>}
         </div>
     );
 }
