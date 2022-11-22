@@ -11,6 +11,10 @@ header {
   font-family: "Roboto";
 }
 
+.centered{
+  text-align: center;
+}
+
 .todo-list {
   display: block;
   background: #e8e8e8;
@@ -28,7 +32,7 @@ header {
   background: #fff;
   border-radius: 3px;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
-  margin-bottom: 6px;
+  margin: 6px;
   padding: 3px 10px;
   grid-template-columns: 80fr, 20fr;
   column-gap: 10px;

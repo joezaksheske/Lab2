@@ -65,8 +65,8 @@ export default function CreateTodo() {
             content, 
             author: user.username,
             dateCreated: new Date().toLocaleString(),
-            completed: false,
-            completeDate: null,
+            isComplete: false,
+            dataCompleted: null,
           });
         }}
       >

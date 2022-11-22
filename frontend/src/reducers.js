@@ -22,7 +22,7 @@ function todoReducer(state, action) {
         content: action.content,
         author: action.author,
         dateCreated: action.dateCreated,
-        completed: action.completed,
+        isComplete: action.isComplete,
         dateCompleted: action.dateCompleted,
       };
       return [newTodo, ...state];
